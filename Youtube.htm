@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Youtube</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #42413C;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	background-image: url(Imagenes%20y%20Gifs/Fondo%20Youtube.jpg);
+	background-repeat: repeat;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen del bloque contenedor. El margen inferior restante lo mantendrá separado de los elementos de que le sigan.  */
+	padding-right: 15px;
+	padding-left: 15px; /* la adición de relleno a los lados del elemento dentro de los bloques, en lugar de en los elementos del bloque propiamente dicho, elimina todas las matemáticas de modelo de cuadro. Un bloque anidado con relleno lateral también puede usarse como método alternativo. */
+}
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+}
+/* ~~ Este contenedor de anchura fija rodea a todas las demás bloques ~~ */
+.container {
+	width: 960px;
+	background-color: #FFFFFF;
+	margin: 0 auto; /* el valor automático de los lados, unido a la anchura, centra el diseño  */
+}
+/* ~~ No se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. ~~ */
+header {
+	background-color: #ADB96E;
+}
+/* ~~ Estas son las columnas para el diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de los elementos del bloque. Los elementos situados dentro de estos bloques tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral al bloque propiamente dicho, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en el  bloque y colocar un segundo bloque dentro de éste sin anchura y el relleno necesario para el diseño deseado.
+
+2) No se asigna margen a las columnas, ya que todas ellas son flotantes. Si es preciso añadir un margen, evite colocarlo en el lado hacia el que se produce la flotación (por ejemplo: un margen derecho en un bloque configurado para flotar hacia la derecha). En muchas ocasiones, puede usarse relleno como alternativa. En el caso de bloques para los que deba incumplirse esta regla, deberá añadir una declaración "display:inline" a la regla del elemento del bloque para evitar un error que provoca que algunas versiones de Internet Explorer dupliquen el margen.
+
+3) Dado que las clases se pueden usar varias veces en un documento (y que también se pueden aplicar varias clases a un elemento), se ha asignado a las columnas nombres de clases en lugar de ID. Por ejemplo, dos bloques de barra lateral podrían apilarse si fuera necesario. Si lo prefiere, éstas pueden cambiarse a ID fácilmente, siempre y cuando las utilice una sola vez por documento.
+
+4) Si prefiere que la navegación esté a la izquierda en lugar de a la derecha, simplemente haga que estas columnas floten en dirección opuesta (todas a la izquierda en lugar de todas a la derecha) y éstas se representarán en orden inverso. No es necesario mover los bloques por el código fuente HTML.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 180px;
+	background-color: #F00;
+	padding-bottom: 10px;
+}
+.content {
+	padding: 10px 0;
+	width: 600px;
+	float: left;
+}
+aside {
+	float: left;
+	width: 180px;
+	background-color: #F00;
+	padding: 10px 0;
+}
+
+/* ~~ Este selector agrupado da espacio a las listas del área de .content ~~ */
+.content ul, .content ol {
+	padding: 0 15px 15px 40px; /* este relleno reproduce en espejo el relleno derecho de la regla de encabezados y de párrafo incluida más arriba. El relleno se ha colocado en la parte inferior para que el espacio existente entre otros elementos de la lista y a la izquierda cree la sangría. Estos pueden ajustarse como se desee. */
+}
+
+/* ~~ Los estilos de lista de navegación (pueden eliminarse si opta por usar un menú desplegable predefinido como el de Spry) ~~ */
+ul.nav {
+	list-style: none; /* esto elimina el marcador de lista */
+	border-top: 1px solid #666; /* esto crea el borde superior de los vínculos (los demás se sitúan usando un borde inferior en el LI) */
+	margin-bottom: 15px; /* esto crea el espacio entre la navegación en el contenido situado debajo */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* esto crea la separación de los botones  */
+}
+ul.nav a, ul.nav a:visited { /* al agrupar estos selectores, se asegurará de que los vínculos mantengan el aspecto de botón incluso después de haber sido visitados  */
+	padding: 5px 5px 5px 15px;
+	display: block; /* esto asigna propiedades de bloque al vínculo, lo que provoca que llene todo el LI que lo contiene. Esto provoca que toda el área reaccione a un clic de ratón. */
+	width: 160px;  /*esta anchura hace que se pueda hacer clic en todo el botón para IE6. Puede eliminarse si no es necesario proporcionar compatibilidad con IE6. Calcule la anchura adecuada restando el relleno de este vínculo de la anchura del contenedor de barra lateral. */
+	text-decoration: none;
+	background-color: #F00;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fondo y del texto tanto para usuarios que naveguen con ratón como para los que lo hagan con teclado */
+	background-color: #C00;
+	color: #000;
+}
+
+/* ~~ El pie de página ~~ */
+footer {
+	padding: 10px 0;
+	background-color: #F00;
+	position: relative;/* esto da a IE6 el parámetro hasLayout para borrar correctamente */
+	clear: both; /* esta propiedad de borrado fuerza a .container a conocer dónde terminan las columnas y a contenerlas */
+}
+/* ~~ Clases float/clear varias ~~ */
+.fltrt {  /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* esta clase puede situarse en elemento <br /> o en un bloque vacío como elemento final tras el último bloque flotante (dentro de .container) si el pie se elimina o se saca fuera de .container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+/*Compatibilidad con HTML 5: define nuevas etiquetas HTML 5 como display:block para que los navegadores sepan cómo procesar las etiquetas correctamente. */
+header, section, footer, aside, article, figure {
+	display: block;
+}
+-->
+</style><!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--></head>
+
+<body>
+
+<div class="container">
+  <header>
+  <img src="Imagenes y Gifs/Portada Youtube.gif" width="960" height="232"></header>
+  <div class="sidebar1">
+    <ul class="nav">
+      
+      <li><a href="index.html">Facebook</a></li>
+      <li><a href="Twitter web.htm">Twitter</a></li>
+      <li><a href="Instagram.html">Instagram</a></li>
+      <li><a href="Youtube.htm">Youtube</a></li>
+      <li><a href="Whatsapp.htm">Whatsapp</a></li>
+    </ul>
+    <aside>
+      <p><strong>Universidad Autonoma De Nuevo Leon</strong></p><br>
+    <p>"Escuela Industrial y Preparatoria Tecnica Alvaro Obregon"</p>
+    <p>Ambiente Visual I</p><br>
+    <p align="right"><strong><i>Creado Por: Yael Palomo Cardenas</i></strong></p>
+    </aside>
+  <!-- end .sidebar1 --></div>
+  <article class="content">
+    <h1 align="center">Youtube</h1>
+    <section>
+      <br><p><strong>YouTube</strong> es un sitio web dedicado a compartir vídeos. Presenta una variedad de clips de peliculas, programas de televisión y vídeos musicales, asi como contenidos amateur como videoblogs y YouTube Gaming. </p>
+      <p>YouTube fue fundado por <strong>Chad Hurley</strong>, <strong>Steve <img src="Imagenes y Gifs/Fundadores de youtube.jpg" width="235" height="180" align="right">Chen</strong> y <strong>Jawed Karim</strong> en febrero de 2005 en San Bruno, California. Todos ellos se conocieron cuando trabajaban en PayPal, Hurley y Karim como ingenieros y Chen como diseñador.</p>
+      <p>&nbsp;</p>
+      
+<p>De acuerdo con Hurley y Chen, la idea de Youtube surgio ante las dificultades que experimentaron al tratar de compartir videos tomados durante una fiesta en San Francisco. Esta historia ha sido considerada una version muy simplificada, y Chen ha reconocido que esta idea se puede haber promovido por la necesidad de presentar una historia sencilla al mercado. Karim ha declarado que la fiesta nunca ocurrio, y que la idea de compartir videos en Internet fue suya. Sus compañeros han declarado que la fiesta sí ocurrio, y que la idea original de Karim era crear una pagina de citas, donde las personas pudiesen calificarse sobre la base de sus videos. Karim reconoce haber sido influenciado por un sitio de citas llamado HotorNot.com (¿Sexy o no?), donde los usuarios podian cargar fotos suyas, que luego eran calificadas por otros usuarios.</p>
+<blockquote>
+  <p>El dominio fue activado el 15 de febrero de 2005,y el 23 de abril fue cargado el primer video, <strong>Me at the Zoo</strong> (‘Yo en el zoológico’).​ En la primavera YouTube entro en linea. Sin embargo, los creadores se percataron rapidamente de que los usuarios cargaban toda clase de videos, dejando atras la idea original. El trafico se disparo cuando la<img src="Imagenes y Gifs/Youtube 1.gif" width="320" height="161" align="right"> gente empezo a colocar enlaces de YouTube en sus paginas de MySpace.​ El rapido crecimiento del sitio atrajo a Time Warner y Sequoia Capital, que invirtieron en el mismo. Luego de que, en octubre de 2005, la empresa Nike colocara un spot protagonizado por Ronaldinho, grandes compañias empezaron a sentirse atraidas por YouTube.​ Solo en 2005, Sequoia tuvo que invertir 8,5 millones de dolares estadounidenses en el sitio.</p>
+</blockquote>
+<p>Para diciembre de 2005, las paginas de YouTube eran visitadas unas 50 millones de veces al dia. Sin embargo, luego de que el video musical Lazy Sunday, transmitido originalmente en el show Saturday Night Live, fuera cargado a YouTube, las visitas se dispararon de nuevo hasta alcanzar las 250 millones de visualizaciones diarias.9 Para mayo de 2006, segun Alexa.com, YouTube alcanzo los 2000 millones de visualizaciones por dia, y para mediados de agosto habia alcanzado la marca de 7000 millones en diversas <img src="Imagenes y Gifs/Youtube 4.jpg" width="297" height="170" align="right">oportunidades;​ ademas, se habia convertido en el decimo sitio mas visitado en Estados Unidos. En aquel momento, el New York Post estimo que YouTube debia valer entre 600 y 1000 millones de dolares estadounidenses. MySpace.com y Google publicaron sus propias versiones de YouTube, sin exito.</p>
+    </section>
+    <section>
+      <h2><i>Evolucion de Youtube</i></h2>
+      <br>
+      <p>Para octubre de 2006, las oficinas de YouTube permanecían en el condado de San Mateo, ubicadas en el segundo piso de un edificio, y contaba con unos 60 empleados. Un ejecutivo de <strong>Universal Music Group</strong> habia anunciado hace poco que <i>«YouTube les debia decenas de millones de dolares»</i>, por violacion de derechos de autor. Mark Cuban, cofundador de Broadcast.com, un servicio de radio por Internet comprado por Yahoo en 1999, habia declarado un mes antes que <i>«solo un tonto compraria YouTube por los potenciales problemas legales que enfrentaria»</i>.1 No obstante, los propietarios del sitio ya se habian comprometido con <i>Warner Music</i> para mejorar el servicio, de manera tal que pudiesen detectar más rapidamente cuando un video de su propiedad era cargado al sitio. No obstante, a inicios de ese mes se publico un reporte en el Wall Street Journal que indicaba que Google iba a comprar YouTube por 1600 millones de dolares. Dicha informacion inicialmente fue negada por YouTube y Google, que la calificaron como rumores.
+<br><br>
+Ese mismo mes Google compro YouTube por 1650 millones de dolares en acciones.​ En el momento de la compra 100 millones de <img src="Imagenes y Gifs/Youtube y Google.jpg" width="278" height="181" align="left">videos en YouTube eran visualizados y 65 mil nuevos videos era añadidos diariamente. Ademas, unos 72 millones de personas la visitaban por mes. Hurley y Chen mantuvieron sus cargos, al igual que los 67 empleados que en ese momento trabajaban en la empresa.​ En los dias anteriores, YouTube habia firmado dos acuerdos con Universal Music Group y la CBS; y Google habia firmado acuerdos con Sony BMG y Warner Music para la distribucion de videos musicales.</p>
+<p>Para junio de 2008, el 38 % de los videos visualizados en Internet provenian de YouTube; el competidor mas cercano solo llegaba a representar el 4 %. Aunque Google no revelo las cifras, se estimo que el sitio genero 200 millones de dolares estadounidenses ese año.13​ En ese mes, un anuncio en la pagina de inicio de YouTube costaba 175 000 dolares diariamente, y el cliente debia comprometerse a gastar 50 000 dolares adicionales en anuncios en Google u otras paginas de YouTube. Sin embargo, debido a que el contenido de la vasta mayoria de los videos en YouTube no atraian a los anunciantes, los precios de los anuncios se colapsaron. YouTube procedio a presionar a los estudios de cine y television para que produjeran contenido audiovisual de calidad, y les ofrecio canales destacados, donde podian presentar anuncios de estrenos de peliculas y cortos de television. Tambien llego a colocar anuncios antes del inicio de un video, pero luego descubrieron que el 70 % de los usuarios abandonaba el sitio antes de que este terminase.</p>
+<br>
+<h2><i>Caracteristicas</i></h2>
+<h4>Reproductor</h4>
+<p>El diseño del reproductor es minimalista y ligero, basado en un color predeterminado: el gris claro, debido a que la empresa busca la comodidad en lo que respecta al tipo de banda de Internet. El primer reproductor de YouTube tenia un diseño curveado, simple, con las opciones resaltando como botones. A mediados de 2007, el segundo cambio a uno mas limpio y moderno, con una estructura mas recta y con las opciones separadas por espacios compartidos. Se agrego opciones como agregar anotaciones, pausar haciendo clic sobre la pantalla del reproductor, banners publicitarios similares a los que aparecen en la television, subtitulos originales y traducidos. A veces, se incluyen spots cortos antes del video.</p>
+
+<h4>Calidad de video</h4>
+<p>En Google Video y otros sitios de videos hay quejas acerca de la calidad, siendo que los videos se pixelan (aparecen cuadros de color uniforme de mayor tamaño, en forma de mosaico), en gran medida debido al equilibrio entre calidad de imagen y velocidad de transmision de datos en la red. Otro problema es que en bastantes clips, el audio y el video no estan sincronizados; aunque esto depende del formato del archivo original.<br><br>
+En general, todos los videos deben ocupar un espacio en disco no mayor a 2 GB y deben tener una duracion menor o igual a 15 minutos, con una tolerancia extra de 59 segundos de grabacion, es decir, una duracion total de 15:59 segundos. La totalidad de los videos son convertidos a resoluciones de 320×240 y 480×360 pixeles, y a 30 fotogramas por segundo, aunque los vídeos alojados antes de marzo de 2008 solo estan disponibles en la resolucion mas baja. A pesar de que todos los videos se muestran predeterminadamente en la resolucion menor, los usuarios pueden reproducirlos en alta calidad ajustando sus preferencias.</p>
+
+<h4>Copyright</h4>
+<p>YouTube ha cambiado profundamente la definicion de derechos de autor en videos, ya que antes de 2005 solo se aplicaban a musica compartida por P2P. Gran parte de los videos que los usuarios publican en YouTube tienen musica o imagenes con copyright, pero la compañia solo los retira si es requerido por el propietario de los derechos de autor. Al retirarse los videos la cuenta del usuario que los publico es suspendida despues de recibir, cuando menos, tres advertencias. Adicionalmente, las productoras de musica pueden solicitar la anulacion de las pistas de audio de los videos que incluyen bandas sonoras o musica que no fue licenciada para su inclusion, quedando totalmente sin sonido.<br><br>
+En el año 2017, las penalidades son las siguientes:
+<ul>
+<li>En caso que una transmision en vivo actual o archivada se quite por incumplir los derechos de autor, se restringira el acceso a la funcion para transmitir en vivo por noventa dias.</li>
+<li>En caso que el usuario reciba tres advertencias por incumplimiento, se rescindira la cuenta, se quitaran todos los videos que de la misma, y no podra crear cuentas nuevas.</li>
+<li>Las advertencias por incumplimiento se hacen cuando el propietario de los derechos de autor envia una solicitud legal completa y valida.</li></ul></p>
+<br>
+<p>Youtube es una herramienta muy util, para cualquier fin que el usuario le pueda dar. Bien puede servir para fines educativos, instructivos, entrenimiento, informativo y recreativo. Esta en las top redes sociales mas visitadas y por ende es una herramienta del internet con mucho valor e importancia.</p>
+    </section>
+  <!-- end .content --></article>
+  <aside>
+    <h4>Nota:</h4>
+    <p>Esta pagina fue creada para reunir informacion y se escogieron diversas fuentes para recopilarla.</p>
+  </aside>
+  <footer>
+   <h4 align="right">20/03/2018</h4>
+  </footer>
+<!-- end .container --></div>
+</body>
+</html>

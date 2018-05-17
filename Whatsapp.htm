@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Whatsapp</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #42413C;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	background-image: url(Imagenes%20y%20Gifs/Fondo%20whatsapp.png);
+}
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen del bloque contenedor. El margen inferior restante lo mantendrá separado de los elementos de que le sigan.  */
+	padding-right: 15px;
+	padding-left: 15px; /* la adición de relleno a los lados del elemento dentro de los bloques, en lugar de en los elementos del bloque propiamente dicho, elimina todas las matemáticas de modelo de cuadro. Un bloque anidado con relleno lateral también puede usarse como método alternativo. */
+}
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+}
+/* ~~ Este contenedor de anchura fija rodea a todas las demás bloques ~~ */
+.container {
+	width: 960px;
+	background-color: #FFFFFF;
+	margin: 0 auto; /* el valor automático de los lados, unido a la anchura, centra el diseño  */
+}
+/* ~~ No se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. ~~ */
+header {
+	background-color: #ADB96E;
+}
+/* ~~ Estas son las columnas para el diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de los elementos del bloque. Los elementos situados dentro de estos bloques tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral al bloque propiamente dicho, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en el  bloque y colocar un segundo bloque dentro de éste sin anchura y el relleno necesario para el diseño deseado.
+
+2) No se asigna margen a las columnas, ya que todas ellas son flotantes. Si es preciso añadir un margen, evite colocarlo en el lado hacia el que se produce la flotación (por ejemplo: un margen derecho en un bloque configurado para flotar hacia la derecha). En muchas ocasiones, puede usarse relleno como alternativa. En el caso de bloques para los que deba incumplirse esta regla, deberá añadir una declaración "display:inline" a la regla del elemento del bloque para evitar un error que provoca que algunas versiones de Internet Explorer dupliquen el margen.
+
+3) Dado que las clases se pueden usar varias veces en un documento (y que también se pueden aplicar varias clases a un elemento), se ha asignado a las columnas nombres de clases en lugar de ID. Por ejemplo, dos bloques de barra lateral podrían apilarse si fuera necesario. Si lo prefiere, éstas pueden cambiarse a ID fácilmente, siempre y cuando las utilice una sola vez por documento.
+
+4) Si prefiere que la navegación esté a la izquierda en lugar de a la derecha, simplemente haga que estas columnas floten en dirección opuesta (todas a la izquierda en lugar de todas a la derecha) y éstas se representarán en orden inverso. No es necesario mover los bloques por el código fuente HTML.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 180px;
+	background-color: #090;
+	padding-bottom: 10px;
+}
+.content {
+	padding: 10px 0;
+	width: 600px;
+	float: left;
+}
+aside {
+	float: left;
+	width: 180px;
+	background-color: #090;
+	padding: 10px 0;
+}
+
+/* ~~ Este selector agrupado da espacio a las listas del área de .content ~~ */
+.content ul, .content ol {
+	padding: 0 15px 15px 40px; /* este relleno reproduce en espejo el relleno derecho de la regla de encabezados y de párrafo incluida más arriba. El relleno se ha colocado en la parte inferior para que el espacio existente entre otros elementos de la lista y a la izquierda cree la sangría. Estos pueden ajustarse como se desee. */
+}
+
+/* ~~ Los estilos de lista de navegación (pueden eliminarse si opta por usar un menú desplegable predefinido como el de Spry) ~~ */
+ul.nav {
+	list-style: none; /* esto elimina el marcador de lista */
+	border-top: 1px solid #666; /* esto crea el borde superior de los vínculos (los demás se sitúan usando un borde inferior en el LI) */
+	margin-bottom: 15px; /* esto crea el espacio entre la navegación en el contenido situado debajo */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* esto crea la separación de los botones  */
+}
+ul.nav a, ul.nav a:visited { /* al agrupar estos selectores, se asegurará de que los vínculos mantengan el aspecto de botón incluso después de haber sido visitados  */
+	padding: 5px 5px 5px 15px;
+	display: block; /* esto asigna propiedades de bloque al vínculo, lo que provoca que llene todo el LI que lo contiene. Esto provoca que toda el área reaccione a un clic de ratón. */
+	width: 160px;  /*esta anchura hace que se pueda hacer clic en todo el botón para IE6. Puede eliminarse si no es necesario proporcionar compatibilidad con IE6. Calcule la anchura adecuada restando el relleno de este vínculo de la anchura del contenedor de barra lateral. */
+	text-decoration: none;
+	background-color: #090;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fondo y del texto tanto para usuarios que naveguen con ratón como para los que lo hagan con teclado */
+	background-color: #060;
+	color: #000;
+}
+
+/* ~~ El pie de página ~~ */
+footer {
+	padding: 10px 0;
+	background-color: #0C0;
+	position: relative;/* esto da a IE6 el parámetro hasLayout para borrar correctamente */
+	clear: both; /* esta propiedad de borrado fuerza a .container a conocer dónde terminan las columnas y a contenerlas */
+}
+/* ~~ Clases float/clear varias ~~ */
+.fltrt {  /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* esta clase puede situarse en elemento <br /> o en un bloque vacío como elemento final tras el último bloque flotante (dentro de .container) si el pie se elimina o se saca fuera de .container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+/*Compatibilidad con HTML 5: define nuevas etiquetas HTML 5 como display:block para que los navegadores sepan cómo procesar las etiquetas correctamente. */
+header, section, footer, aside, article, figure {
+	display: block;
+}
+-->
+</style><!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--></head>
+
+<body>
+
+<div class="container">
+  <header>
+  <img src="Imagenes y Gifs/Portada de whatsapp.jpg" width="960" height="302"></header>
+  <div class="sidebar1">
+    <ul class="nav">
+     
+      <li><a href="index.html">Facebook</a></li>
+      <li><a href="Twitter web.htm">Twitter</a></li>
+      <li><a href="Instagram.html">Instagram</a></li>
+      <li><a href="Youtube.htm">Youtube</a></li>
+      <li><a href="Whatsapp.htm">Whatsapp</a></li>
+    </ul>
+    <aside>
+      <p><strong>Universidad Autonoma De Nuevo Leon</strong></p><br>
+    <p>"Escuela Industrial y Preparatoria Tecnica Alvaro Obregon"</p>
+    <p>Ambiente Visual I</p><br>
+    <p align="right"><strong><i>Creado Por: Yael Palomo Cardenas</i></strong></p>
+    </aside>
+  <!-- end .sidebar1 --></div>
+  <article class="content">
+    <h1 align="center"><i>Whatsapp</i></h1>
+    <section>
+      <br><p><strong>WhatsApp</strong> es una aplicacion de mensajeria para telefonos inteligentes, que envia y recibe mensajes mediante Internet, complementando servicios de correo electronico, mensajeria instantanea, servicio de mensajes cortos o sistema de mensajeria multimedia. </p>
+      <p><strong>WhatsApp Inc.</strong> fue fundada en 2009 por <strong>Jan Koum</strong> (quien habia llegado desde Ucrania a Estados Unidos a principios de los años noventa hablando muy poco ingles), y que habia sido anteriormente el director del equipo de operaciones de plataforma de <strong>Yahoo!</strong> y el antiguo jefe del equipo de ingenieros de Brian Acton.​
+Originalmente WhatsApp era una utilidad de agenda <i>"inteligente"</i> donde se podia ver que estaba haciendo cada persona, a fin de saber si estaba<img src="Imagenes y Gifs/whatsapp 1.jpg" width="300" height="168" align="right"> disponible para hablar o si era mejor contactar con ella en otro momento, a traves de SMS, etc. (What's up?, cuyo significado se asemeja a ¿que tal?, ¿que hay?, ¿que pasa?, o ¿como te va?), en forma de programar estados especeficos a determinadas horas. A diferencia de otras aplicaciones de comunicación como MSN o Aol, utiliza directamente la informacion de la libreta de contactos del usuario, evitando crear manualmente nombre de usuario y contraseña.</p>
+<p>Era originalmente una aplicacion para dispositivos BlackBerry y mas tarde, para iPhone. Los estados se podian difundir a todos los contactos o solo unos especificos, simulando un chat o conversacion.<br><br>
+Por otro lado, WhatsApp Inc. ha recibido inversiones por valor de 10 millones de dolares por parte de la empresa Sequoia Capital. WhatsApp fue retirado de la AppStore el 14 de enero de 2012 durante cuatro dias, segun algunos, por fallos de seguridad. Esto ha sido desmentido por Brian Acton.<br><br>
+En marzo de 2013, WhatsApp anuncio que la version para Android, que fue gratuita desde su creacion, seria de pago por el primer uso; luego de 365 dias de uso es forzoso volver a pagar para extender el uso del programa por otro año. Esto ha llevado a un progresivo declive de Whatsapp a favor de otros competidores, en los paises donde la plataforma Android es dominante ya que el concepto de pagar por servicios de Internet y aplicaciones es inexistente.
+El 19<img src="Imagenes y Gifs/Whatsapp y Face.png" width="259" height="194" align="right"> de febrero de 2014, <strong>Mark Zuckerberg</strong> ―el creador de Facebook― anuncio en su perfil personal la compra de la aplicacion movil WhatsApp por un importe total de 19 000 millones de dolares y aclaro que compro la aplicacion para que haya mas usuarios en Facebook.</p>
+    </section>
+    <section>
+      <h2><i>Curiosidades de Whatsapp</i></h2>
+      <br><h4>1- Facebook se podria haber ahorrado miles de millones de dolares</h4>
+<p>Facebook se gasto 19.000 millones de dolares para hacerse con WhatsApp, en una de las operaciones mas importantes del sector en toda la historia, pero la verdad es que podria haber conseguido lo mismo por muchisimo menos.<br>
+Y es que sus creadores, <strong>Jan Koum</strong> y <strong>Brian Acton</strong>, llamaron a las puertas de Facebook en 2007, cuando abandonaron Yahoo en busca de nuevas oportunidades; sin embargo, como no consiguieron que la compañia de Zuckerberg (ni Twitter) les hiciese caso, decidieron fundar su propia compañia, WhatsApp, el 24 de Febrero de 2009.</p>
+<h4>2- El origen del nombre de WhatsApp</h4>
+<p>Es posible que ya sospechases algo, pero el nombre de WhatsApp proviene de la frase en inglés “What’s up?” que vendría a ser un “¿Que hay? ¿Que tal?” en español. De esta manera se inician una enorme cantidad de conversaciones todos los días, así que es apropiado que hiciesen un juego de palabras con <i>“app”</i>, que en 2009 era la palabra de moda.</p>
+<h4>3- WhatsApp no se ha gastado un centimo en marketing</h4>
+<p>Desde que la primera version de la app fuese lanzada para iOS en Noviembre de 2009, WhatsApp no se ha gastado absolutamente nada en promocionar su app. Simplemente ha dejado que sean los propios usuarios los que la recomienden, aprovechando el boca a boca, que en la era de Internet tiene mas influencia que nunca.</p>
+<h4>4- Google estuvo a punto de comprar WhatsApp</h4>
+<p>En 2014 quedo claro que WhatsApp estaba en una situacion idoea para venderse al mejor postor, y ese podria haber sido Google. Aunque el gigante de Internet ya tiene su propia app, Hangouts, estuvo dispuesto a abrir la cartera y soltar 10.000 millones de dolares.<br><br>
+
+Como es bien sabido, finalmente fue Facebook la que se llevo el gato al agua, gastando unos 19.000 millones de dolares. Esa cifra es mayor que el presupuesto anual de la NASA (17.000 millones), para haceros una idea de la magnitud de la compra.</p>
+<h4>5- WhatsApp no gana dinero con publicidad ni vendiendo nuestros datos</h4>
+<p>Pese a venderse a Facebook, WhatsApp permanece mas o menos independiente respecto a la red social, como demuestra que Facebook Messenger siga actualizandose y compitiendo contra ella.<br><br>
+
+Si WhatsApp no muestra publicidad, y tampoco aprovecha nuestros datos, ¿cómo gana dinero? De una manera muy tradicional: cobrando por el servicio. Inicialmente la app era de pago en iOS, aunque cuando llego a Android se implemento un nuevo sistema por el que la app es gratis el primer año de uso, despues del cual se nos permite pagar 1 dolar por año (0.89 €).</p>
+    </section>
+    <section>
+      <h2><i>Ventajas</i></h2>
+      <h4>1.- Gratuita</h4>
+      <p>la aplicacion de WhatsApp es gratuita. Se puede descargar en la tienda virtual del sistema operativo que tenga el dispositivo (por ejemplo, en la PlayStore de Android) sin necesidad de pagar ningún tipo de tarifa.
+Además de esto, WhatsApp no cobra por los servicios que ofrece: se pueden enviar mensajes y hacer llamadas ilimitadas sin ningún problema. Solo es necesario tener conexion a Internet.</p>
+<h4>2.- No muestra contenido publicitario</h4>
+<p>A diferencia de otras aplicaciones, WhatsApp no muestra anuncios publicitarios. Esto representa una gran ventaja desde distintos puntos de vista.<br><br>
+En primer lugar, la plataforma de WhatsApp es mucho mas rapida que otros servicios de mensajeria al no tener que cargar este contenido publicitario.<br>
+Sumado a esto, resulta ameno para los usuarios no ser bombardeados con informacion que puede no interesarles.</p>
+<h4>3.- Ofrece diversos servicios</h4>
+<p>La plataforma de WhatsApp ofrece gran variedad de servicios: mensajería instantánea, llamadas de voz y de video, notas de voz y subida de contenido multimedia.</p>
+<h4>4.- Cifrado de extremo a extremo</h4>
+<p>Los mensajes, las imagenes y los audios enviados dentro de un chat estan protegidos con cifrado de extremo a extremo.<br>
+Este cifrado consiste en un sistema de proteccion de la privacidad de los usuarios que asegura que los mensajes sean leios unicamente por el numero telefonico al que fueron enviados.<br>
+Además de esto, la aplicacion ofrece distintos niveles de privacidad. Por ejemplo, permite que los usuarios que no esten registrados como contactos no puedan ver la foto de perfil ni la informacion personal.</p>
+<h4>5.- Permite compartir contenido multimedia</h4>
+<p>En WhatsApp se pueden compartir distintos tipos de archivos multimedia: desde imagenes hasta archivos de audio y videos.</p>
+<h2><i>Desventajas</i></h2>
+<h4>1.- Adictiva</h4>
+<p>Por su rapidez y los beneficios que ofrece, la aplicacion de WhatsApp resulta muy adictiva. Esto hace que los usuarios disminuyan la cantidad de tiempo que interactuan con personas de su entorno.</p>
+<h4>2.- Requiere ser actualizada cada cierto tiempo</h4>
+<p>Los creadores de WhatsApp lanzan al mercado actualizaciones de la plataforma cada mes</p>
+<h4>3.- Requiere compartir el número de teléfono</h4>
+<p>WhatsApp requiere compartir el numero de telefono y existen personas que prefieren mantener esta información privada.</p>
+<h4>4- No se puede utilizar con personas que no tienen WhatsApp</h4>
+<p>La aplicacion de WhatsApp no permite conversar con aquellas personas que no dispongan de este servicio.
+Esto representa una desventaja debido a que no todas las personas cuentan con un telefono inteligente o con cualquier otro dispositivo compatible con WhatsApp.</p>
+<h4>5.- Puede ocupar mucho espacio</h4>
+<p>Tanto los mensajes como las notas de voz y los demas archivos multimedia pueden ocupar mucho espacio en la memoria del telefono.</p>
+<br>
+<p>la invencion del whatsapp es muy importante en nuestras vidas pues una persona puede comunicarse más fácilmente con otra sin importar la distancia.</p>
+    </section>
+  <!-- end .content --></article>
+  <aside>
+    <h3>Nota:</h3>
+    <p>Esta pagina fue creada para reunir informacion y se escogieron diversas fuentes para recopilarla.</p>
+  </aside>
+  <footer>
+    <h4 align="right">20/03/2018</h4>
+  </footer>
+  <!-- end .container --></div>
+</body>
+</html>

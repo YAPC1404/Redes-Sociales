@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Instagram</title>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #42413C;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	background-image: url(Imagenes%20y%20Gifs/Fondo%20Instagram.jpg);
+	background-repeat: repeat;
+}
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen del bloque contenedor. El margen inferior restante lo mantendrá separado de los elementos de que le sigan.  */
+	padding-right: 15px;
+	padding-left: 15px; /* la adición de relleno a los lados del elemento dentro de los bloques, en lugar de en los elementos del bloque propiamente dicho, elimina todas las matemáticas de modelo de cuadro. Un bloque anidado con relleno lateral también puede usarse como método alternativo. */
+}
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+}
+/* ~~ Este contenedor de anchura fija rodea a todas las demás bloques ~~ */
+.container {
+	width: 960px;
+	background-color: #FFFFFF;
+	margin: 0 auto; /* el valor automático de los lados, unido a la anchura, centra el diseño  */
+}
+/* ~~ No se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. ~~ */
+header {
+	background-color: #ADB96E;
+}
+/* ~~ Estas son las columnas para el diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de los elementos del bloque. Los elementos situados dentro de estos bloques tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral al bloque propiamente dicho, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en el  bloque y colocar un segundo bloque dentro de éste sin anchura y el relleno necesario para el diseño deseado.
+
+2) No se asigna margen a las columnas, ya que todas ellas son flotantes. Si es preciso añadir un margen, evite colocarlo en el lado hacia el que se produce la flotación (por ejemplo: un margen derecho en un bloque configurado para flotar hacia la derecha). En muchas ocasiones, puede usarse relleno como alternativa. En el caso de bloques para los que deba incumplirse esta regla, deberá añadir una declaración "display:inline" a la regla del elemento del bloque para evitar un error que provoca que algunas versiones de Internet Explorer dupliquen el margen.
+
+3) Dado que las clases se pueden usar varias veces en un documento (y que también se pueden aplicar varias clases a un elemento), se ha asignado a las columnas nombres de clases en lugar de ID. Por ejemplo, dos bloques de barra lateral podrían apilarse si fuera necesario. Si lo prefiere, éstas pueden cambiarse a ID fácilmente, siempre y cuando las utilice una sola vez por documento.
+
+4) Si prefiere que la navegación esté a la izquierda en lugar de a la derecha, simplemente haga que estas columnas floten en dirección opuesta (todas a la izquierda en lugar de todas a la derecha) y éstas se representarán en orden inverso. No es necesario mover los bloques por el código fuente HTML.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 180px;
+	background-color: #939;
+	padding-bottom: 10px;
+}
+.content {
+	padding: 10px 0;
+	width: 600px;
+	float: left;
+}
+aside {
+	float: left;
+	width: 180px;
+	background-color: #939;
+	padding: 10px 0;
+}
+
+/* ~~ Este selector agrupado da espacio a las listas del área de .content ~~ */
+.content ul, .content ol {
+	padding: 0 15px 15px 40px;
+	text-align: center;
+}
+
+/* ~~ Los estilos de lista de navegación (pueden eliminarse si opta por usar un menú desplegable predefinido como el de Spry) ~~ */
+ul.nav {
+	list-style: none; /* esto elimina el marcador de lista */
+	border-top: 1px solid #666; /* esto crea el borde superior de los vínculos (los demás se sitúan usando un borde inferior en el LI) */
+	margin-bottom: 15px; /* esto crea el espacio entre la navegación en el contenido situado debajo */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* esto crea la separación de los botones  */
+}
+ul.nav a, ul.nav a:visited { /* al agrupar estos selectores, se asegurará de que los vínculos mantengan el aspecto de botón incluso después de haber sido visitados  */
+	padding: 5px 5px 5px 15px;
+	display: block; /* esto asigna propiedades de bloque al vínculo, lo que provoca que llene todo el LI que lo contiene. Esto provoca que toda el área reaccione a un clic de ratón. */
+	width: 160px;  /*esta anchura hace que se pueda hacer clic en todo el botón para IE6. Puede eliminarse si no es necesario proporcionar compatibilidad con IE6. Calcule la anchura adecuada restando el relleno de este vínculo de la anchura del contenedor de barra lateral. */
+	text-decoration: none;
+	background-color: #F30;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fondo y del texto tanto para usuarios que naveguen con ratón como para los que lo hagan con teclado */
+	background-color: #F63;
+	color: #000;
+}
+
+/* ~~ El pie de página ~~ */
+footer {
+	padding: 10px 0;
+	background-color: #936;
+	position: relative;/* esto da a IE6 el parámetro hasLayout para borrar correctamente */
+	clear: both; /* esta propiedad de borrado fuerza a .container a conocer dónde terminan las columnas y a contenerlas */
+}
+/* ~~ Clases float/clear varias ~~ */
+.fltrt {  /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* esta clase puede situarse en elemento <br /> o en un bloque vacío como elemento final tras el último bloque flotante (dentro de .container) si el pie se elimina o se saca fuera de .container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+/*Compatibilidad con HTML 5: define nuevas etiquetas HTML 5 como display:block para que los navegadores sepan cómo procesar las etiquetas correctamente. */
+header, section, footer, aside, article, figure {
+	display: block;
+}
+-->
+</style><!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--></head>
+
+<body>
+
+<div class="container">
+  <header>
+  <img src="Imagenes y Gifs/Instagram 1.gif" width="960" height="293"></header>
+  <div class="sidebar1">
+    <ul class="nav">
+      
+      <li><a href="index.html">Facebook</a></li>
+      <li><a href="Twitter web.htm">Twitter</a></li>
+      <li><a href="Instagram.html">Instagram</a></li>
+      <li><a href="Youtube.htm">Youtube</a></li>
+      <li><a href="Whatsapp.htm">Whatsapp</a></li>
+    </ul>
+    <aside>
+      <p><strong>Universidad Autonoma De Nuevo Leon</strong></p><br>
+    <p>"Escuela Industrial y Preparatoria Tecnica Alvaro Obregon"</p>
+    <p>Ambiente Visual I</p><br>
+    <p align="right"><strong><i>Creado Por: Yael Palomo Cardenas</i></strong></p>
+    </aside>
+  </div>
+  <article class="content">
+    <h1 align="center">Instagram</h1>
+    <section>
+      <p>Un 6 de octubre de 2010 se lanzo en App Store una de las redes sociales mas famosas del mundo entero, <i>“Instagram”. </i> fue creado por los jovenes Kevin Systrom y Mike Krieger. Esta aplicacion gano rapidamente popularidad, llegando a tener mas de 100 millones de usuarios activos en abril de 2012 y mas de 300 millones en diciembre de 2014.1​ Instagram fue diseñada originariamente para iPhone y a su vez esta disponible para sus hermanos iPad y iPod con el sistema iOS 3.0.2 o superior. A principios de abril de 2012, se publico una version para Android, y en 2013 se lanzo la version beta para Windows Phone y oficial para Windows 10 en 2016.</p>
+      <p>Ambos fundadores tienen pasion por la fotografia y cuando eran pequeños jugaban a todas horas con una camara, por aquella epoca se las conocia popularmente como instantaneas. Otro termino curioso que entra en juego es que aquellos niños creian que las fotos eran como telegramas que se enviaban a traves del cable, de forma que juntaron ambos conceptos para finalmente bautizarla como <strong>Instagram.</strong></p>
+      <p>A ambos les encantaba hacer fotos, siempre pensaron que hacer fotos interesantes requieren una camara grande y un par de años de la escuela de arte. Pero a medida que las camaras de telefonos moviles se pusieron mejor y mejor, decidieron desafiar esa suposicion. Crearon Instagram para resolver tres problemas sencillos:<br>
+    <ul>  
+<li>Las fotos en el movil siempre tenian un aspecto mediocre. Con los filtros se podian transformar las fotos en instantaneas de aspecto profesional.<img src="Imagenes y Gifs/instagram 3.gif" width="250" height="263" align="right"></li>
+<li><strong>Compartir en multiples plataformas a la vez</strong> – Puedes tomar una foto de una vez, y luego compartirlo (al instante) en multiples servicios.
+La mayoria de las experiencias tardan una eternidad en subir las imagenes, por lo que optimizaron la experiencia para que sea rapido y eficiente.</li></ul></p>
+</section>
+    <section>
+      <h2><i>Seguridad</i></h2>
+      <p>Millones de personas comparten sus vidas a traves de fotos todos los dias en Instagram. A medida que mas y más se unen a Instagram, es importante que usted sepa como mantener la seguridad en la comunidad. Se a querido responder a algunas preguntas comunes sobre la privacidad y la seguridad en la esperanza de mejorar la experiencia en Instagram.
+      <ul>
+      <li><strong>Eres dueño de tus fotos:</strong> Cuando compartes tus fotos en Instagram, usted los esta compartiendo en la plataforma de Instagram, lo que significa que otros seran capaces de verlos, pero aun conservan el derecho de autor a las fotografias. Instagram no reclama ningun derecho de propiedad sobre sus fotos.</li> 
+      <li><strong>Usted tiene la opcion de ser privada:</strong> De forma predeterminada, cualquier usuario de Instagram pueden ver las fotos. Si desea limitar las personas que ven sus fotos en tan solo los que te siguen, solo tiene que hacer su cuenta privada girando el <strong>"Las fotos son privadas"</strong> switch ON. Una vez privado, cualquier persona que quiere ver sus fotos en Instagram tendra que enviar una solicitud de seguimiento, que luego se puede probar o negar.</li></ul></p>
+      <br><br>
+      <h2><i>Funciones</i></h2>
+      <p>Podemos definir a Instagram como una mezcla de fotografía y red social. Es una aplicación extremadamente sencilla, a la vez que te ofrece altas posibilidades y soporta grandes redes sociales que ya todos usamos.<br>
+      Hay tres formas de ver qué esta pasando en Instagram:
+      <ul>
+      <li>Desde el Inicio, puede verse que esta publicando la gente.</li>
+      <li>Desde Populares, donde pueden observarse las tendencias y las fotos que provocan conmocion.<img src="Imagenes y Gifs/Instagram 2.gif" width="200" height="200" align="right"></li>
+      <li>Desde Novedades, que nos da la opcion de ver que le gusta a la gente conocida o ver como interactuan con uno.</li></ul></p>
+      <p>A traves de <strong>Instagram</strong> se pueden incluir filtros, marcos y colores retros a las fotografias. Basicamente la aplicacion tiene dos funciones: la de tomar fotografias y la de compartirla en las redes sociales.</p>
+      <h3><strong><i>Funcion camara</i></strong></h3>
+      <p>La funcion central de  Instagram es la fotografica, por tanto la posicion central del panel esta reservada para la camara. La camara de Instagram es muy sencilla, cuenta con cinco botones: flash, cambiar camara (delantera, trasera), tomar foto galeria, para retocar fotos que no hayamos tomado con el movil.<br>
+      
+Para editar cuenta con tres opciones: filtro, marco e iluminación Lux. Cada filtro, viene con un marco (que se puede o no activar). Tambien cuenta con la herramienta de giro 90º.</p>
+      <h3><strong><i>Funcion Red Social</i></strong></h3>
+      <p>Aunque la funcion central de Instagram es la fotografica, debemos decir que el objetivo de la aplicacion  no son las fotos en si mismas, sino socializarlas y compartirlas en las redes sociales. Para ello Instagram brinda cuatro opciones: Twitter, Facebook, Foursquare o Tumblr. Tambien se puede habilitar la geolocalizacion de las fotos, para que se sepa donde están tomadas.<br>
+A cada foto le podemos asignar un titulo y, una vez en publicadas, se puede comentar en ellas, marcarlas como <strong>“me gusta”</strong> y si son de otro volver a compartirla.<br>
+Dentro de cada galeria tenemos la opcion de ver las fotos en forma de lista, detalladas para interactuar de forma directa con cada una, o en forma de cuadricula para tener una vision global.</p>
+    </section>
+    <section>
+      <h2><i>Datos Interesantes sobre Instagram</i></h2>
+      <p>Con <strong>150 millones</strong> de usuarios activos alrededor del mundo, Instagram se ubica como una de las redes sociales más importantes dentro de las dinámicas de comunicación de los usuarios digitales.</p>
+      <ol>
+      <li>El 39 por ciento de los usuarios de Instagram tienen entre 16 y 24 años de edad.</li>
+      <li>Para mediados del 2013, el tiempo promedio invertido por los internautas en Instagram alcanzó los 257 minutos.</li>
+      <li>De los usuarios de Instagram el 37 por ciento nunca ha subido una fotografía.</li>
+      <li>El 68 por ciento de los miembros de la red social son mujeres.</li>
+      <li>Los domingos son los días más efectivos para publicar en Instagram.</li>
+      <li>Las grandes marcas tienen mayor actividad en dicha plataforma los jueves.</li>
+      <li>Al hablar de filtros, Mayfair es el que más comentarios y “likes” genera.</li>
+      <li>El número de interacciones aumenta hasta en 24 por ciento cuando en la gama de color de las fotografías predomina el azul.</li>
+      <li>Para octubre del año pasado se calculaba que se habían compartido en Instagram 35 millones de selfies.</li>
+      <li>De los mini-videos de Instagram 9 de cada 10 se comparten en Facebook.</li>
+      <li>Nike, Starbucks y la NBA son las marcas más populares en Instagram.</li>
+      <li>La audiencia total del primer anuncio de Instagram tuvo una audiencia de 6.15 millones de usuarios.</li></ol>
+      <p>Instagram como muchas redes sociales es un medio para darte a conocer y un medio bastante importante hoy en dia para poder dar a conocer diferentes cosas con la diferencia de que en esta plataforma el principal objetivo es el publicar una foto. </p>
+    </section>
+    </article>
+  <aside>
+  <h3>Nota:</h3>
+    <p>Esta pagina fue creada para reunir informacion y se escogieron diversas fuentes para recopilarla.</p>
+  </aside>
+  <footer>
+    <h4 align="right">20/03/2018</h4>
+  </footer>
+  <!-- end .container --></div>
+</body>
+</html>

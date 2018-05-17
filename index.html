@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+<meta charset="utf-8">
+<title>Facebook</title>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #0033CC;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen del bloque contenedor. El margen inferior restante lo mantendrá separado de los elementos de que le sigan.  */
+	padding-right: 15px;
+	padding-left: 15px; /* la adición de relleno a los lados del elemento dentro de los bloques, en lugar de en los elementos del bloque propiamente dicho, elimina todas las matemáticas de modelo de cuadro. Un bloque anidado con relleno lateral también puede usarse como método alternativo. */
+}
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	color: #00F;
+	background-color: #06F
+	text-decoration: underline; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+}
+/* ~~ Este contenedor de anchura fija rodea a todas las demás bloques ~~ */
+.container {
+	width: 960px;
+	background-color: #FFFFFF;
+	margin: 0 auto; /* el valor automático de los lados, unido a la anchura, centra el diseño  */
+}
+/* ~~ No se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. ~~ */
+header {
+	background-color: #ADB96E;
+}
+/* ~~ Estas son las columnas para el diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de los elementos del bloque. Los elementos situados dentro de estos bloques tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral al bloque propiamente dicho, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en el  bloque y colocar un segundo bloque dentro de éste sin anchura y el relleno necesario para el diseño deseado.
+
+2) No se asigna margen a las columnas, ya que todas ellas son flotantes. Si es preciso añadir un margen, evite colocarlo en el lado hacia el que se produce la flotación (por ejemplo: un margen derecho en un bloque configurado para flotar hacia la derecha). En muchas ocasiones, puede usarse relleno como alternativa. En el caso de bloques para los que deba incumplirse esta regla, deberá añadir una declaración "display:inline" a la regla del elemento del bloque para evitar un error que provoca que algunas versiones de Internet Explorer dupliquen el margen.
+
+3) Dado que las clases se pueden usar varias veces en un documento (y que también se pueden aplicar varias clases a un elemento), se ha asignado a las columnas nombres de clases en lugar de ID. Por ejemplo, dos bloques de barra lateral podrían apilarse si fuera necesario. Si lo prefiere, éstas pueden cambiarse a ID fácilmente, siempre y cuando las utilice una sola vez por documento.
+
+4) Si prefiere que la navegación esté a la izquierda en lugar de a la derecha, simplemente haga que estas columnas floten en dirección opuesta (todas a la izquierda en lugar de todas a la derecha) y éstas se representarán en orden inverso. No es necesario mover los bloques por el código fuente HTML.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 180px;
+	background-color: #FFF;
+	padding-bottom: 10px;
+}
+.content {
+	padding: 10px 0;
+	width: 600px;
+	float: left;
+}
+aside {
+	float: left;
+	width: 180px;
+	background-color: #03F;
+	padding: 10px 0;
+}
+
+/* ~~ Este selector agrupado da espacio a las listas del área de .content ~~ */
+.content ul, .content ol {
+	padding: 0 15px 15px 40px; /* este relleno reproduce en espejo el relleno derecho de la regla de encabezados y de párrafo incluida más arriba. El relleno se ha colocado en la parte inferior para que el espacio existente entre otros elementos de la lista y a la izquierda cree la sangría. Estos pueden ajustarse como se desee. */
+}
+
+/* ~~ Los estilos de lista de navegación (pueden eliminarse si opta por usar un menú desplegable predefinido como el de Spry) ~~ */
+ul.nav {
+	list-style: none; /* esto elimina el marcador de lista */
+	border-top: 1px solid #666; /* esto crea el borde superior de los vínculos (los demás se sitúan usando un borde inferior en el LI) */
+	margin-bottom: 15px; /* esto crea el espacio entre la navegación en el contenido situado debajo */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* esto crea la separación de los botones  */
+}
+ul.nav a, ul.nav a:visited { /* al agrupar estos selectores, se asegurará de que los vínculos mantengan el aspecto de botón incluso después de haber sido visitados  */
+	padding: 5px 5px 5px 15px;
+	display: block; /* esto asigna propiedades de bloque al vínculo, lo que provoca que llene todo el LI que lo contiene. Esto provoca que toda el área reaccione a un clic de ratón. */
+	width: 160px;  /*esta anchura hace que se pueda hacer clic en todo el botón para IE6. Puede eliminarse si no es necesario proporcionar compatibilidad con IE6. Calcule la anchura adecuada restando el relleno de este vínculo de la anchura del contenedor de barra lateral. */
+	text-decoration: none;
+	background-color: #06F;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fondo y del texto tanto para usuarios que naveguen con ratón como para los que lo hagan con teclado */
+	background-color: #06F;
+	color: #000;
+}
+
+/* ~~ El pie de página ~~ */
+footer {
+	padding: 10px 0;
+	background-color: #03F;
+	position: relative;/* esto da a IE6 el parámetro hasLayout para borrar correctamente */
+	clear: both; /* esta propiedad de borrado fuerza a .container a conocer dónde terminan las columnas y a contenerlas */
+}
+/* ~~ Clases float/clear varias ~~ */
+.fltrt {  /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* esta clase puede situarse en elemento <br /> o en un bloque vacío como elemento final tras el último bloque flotante (dentro de .container) si el pie se elimina o se saca fuera de .container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+/*Compatibilidad con HTML 5: define nuevas etiquetas HTML 5 como display:block para que los navegadores sepan cómo procesar las etiquetas correctamente. */
+header, section, footer, aside, article, figure {
+	display: block;
+}
+-->
+</style><!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--></head>
+
+<body>
+
+<div class="container">
+  <div class="header">
+  <img src="Imagenes y Gifs/FacebookP.jpg" width="960" height="222" /></div>
+  <div class="sidebar1">
+    <ul class="nav">
+      
+      <li><a href="index.html">Facebook</a></li>
+      <li><a href="Twitter web.htm">Twitter</a></li>
+      <li><a href="Instagram.html">Instagram</a><a href="#"></a></li>
+      <li><a href="Youtube.htm">Youtube</a></li>
+      <li><a href="Whatsapp.htm">Whatsapp</a></li>
+    </ul>
+      <aside>
+      <p><strong>Universidad Autonoma De Nuevo Leon</strong></p><br>
+    <p>"Escuela Industrial y Preparatoria Tecnica Alvaro Obregon"</p>
+    <p>Ambiente Visual I</p><br>
+    <p align="right"><strong><i>Creado Por: Yael Palomo Cardenas</i></strong></p>
+    </aside>
+  </div>
+  <article class="content">
+    <h1 align="center">Facebook</h1>
+    <section>
+    <p>&nbsp;</p>
+     <blockquote>
+       <h2><i>¿Como Se Creo Facebook?</i></h2>
+       <p><br>
+       </p>
+       <p><strong>Mark Zuckerberg</strong> creo Facebook en el periodo en que fue estudiante de la Universidad de Harvard. Cuando esta red social empezo a ganar en popularidad, Mark abandono sus estudios en Harvard.<img src="Imagenes y Gifs/facebook5.JPEG.jpg" width="150" height="160" align="right"> La compañía actualmente tiene sus oficinas centrales en Menlo Park, California. En 2003 Zuckerberg lanzo en la universidad un sitio web llamado Facemash (pronunciación AFI [feɪsmæʃ]) donde reunia varias fotografias y nombres de estudiantes de Harvard, este sitio estuvo disponible solo por algunas horas y por este suceso fue llevado ante los directivos de la Universidad, quienes culparon a Mark por haber sustraido datos e imágenes del sistema informatico de la institucion; suspendieron a Mark de clases, quien luego se alejo de la universidad al año siguiente para crear Facebook.</p>
+       <p>En enero de 2004 los hermanos <strong>Winklevoss</strong> y <strong>Divya Narendra</strong>, estudiantes tambien de Harvard, supieron del incidente de Mark y su Facemash, observaron sus habilidades informaticas y hablaron con el acerca de una idea que ellos tenian para crear un directorio web en linea para el uso de todos los integrantes de las fraternidades en la universidad, hasta entonces dispersos en diversos facebooks, anuarios impresos. Mark acepto y comenzo a trabajar en ese proyecto, Zuckerberg trabajaba en ese proyecto pero al mismo tiempo trabajaba en uno propio, el thefacebook, que aparecio el <i>4 de febrero de 2004</i><img src="Imagenes y Gifs/facebook7.jpg" width="368" height="259" align="right" /> reflejando a Mark como creador. Seis dias despues, los hermanos Winklevoss y Narendra abren una demanda pues thefacebook era similar al sitio web en el cual ellos estaban trabajando llamado HarvardConnection.com. Acusaron a Mark de haber retrasado intencionalmente el proyecto de ellos en el cual el era el desarrollador principal, para crear thefacebook, y que por consiguiente su idea fue robada y a ellos no les dio ningún credito. Thefacebook se hizo muy popular entre todos los estudiantes de Harvard y pronto crecio mas, hasta llegar a otras instituciones y alcanzando a todas las universidades de la <strong>Ivy League.</strong></p>
+       <p>En algun momento de 2004, <strong>Sean Parker</strong>, creador de <strong>Napster</strong>, supo de la existencia de <strong>thefacebook</strong> por medio de su novia. Parker ya tenia experiencia en redes sociales al ser accionista de <strong>Friendster</strong>, para entonces la mas popular. Por la diferencia de publico entre ambos, Parker intuyo que thefacebook podia tener mayor potencial. Tuvo una entrevista con Zuckerberg para negociar entrar como <strong>presidente ejecutivo</strong>, a cambio de eliminar el the del nombre dejandolo como <strong>Facebook</strong>. En 2005 Sean Parker fue expulsado del cargo de presidente ejecutivo despues de ser arrestado como sospechoso por posesion de cocaina.</p>
+       <p>La idea de crear una comunidad basada en la Web en que la gente compartiera sus gustos y sentimientos no era nueva, pues <strong>David Bohnett, creador de Geocities</strong>, la habia incubado a fines de la decada de1980. Una de las estrategias de Zuckerberg fue abrir la plataforma Facebook a otros desarrolladores.
+         Entre los años 2007 y 2008 se puso en marcha Facebook en español, traducido por voluntarios,6 extendiendose a los paises de Latinoamerica y a España.</p>
+     </blockquote>
+    </section>
+    <section>
+      <blockquote>
+        <h2><i>Expansion de Facebook</i></h2>
+        <p><br>
+        </p>
+        <p><strong>Facebook</strong> comenzo a permitir que los estudiantes universitarios agregasen a estudiantes cuyas escuelas no estaban incluidas en el sitio debido a las peticiones de los usuarios. En marzo de 2006, BusinessWeek divulgo que se estaba negociando una adquisición potencial del sitio. Facebook declino una oferta de $750 millones</p>
+        <h4>Mark Zuckerberg</h4>
+        <p>En mayo de 2006, la red de Facebook se extendio con exito en la India, con apoyo de institutos de tecnologia de aquel pais. En junio de 2006, hubo un acuerdo con iTunes Store para que iTunes conociera los gustos musicales de los usuarios y ofrecer asi un enlace de descarga en su propio sitio. En agosto de 2006, Facebook agrego universidades en Alemania e Israel a su red. Tambien introdujo la importacion de blogs de Xanga, LiveJournal o Blogger.</p>
+        <p>Desde <i>septiembre de 2006</i>, <strong>Facebook se abre a todos los usuarios del Internet</strong>, a pesar de protestas de gran parte de sus usuarios, ya que perderia la base estudiantil sobre la cual se habia mantenido.<br>
+          En <i>julio de 2007</i>, Facebook anuncio su primera adquisicion, Parakey, Inc., de Blake Ross y de Joe Hewitt. En agosto del mismo año se le dedico la portada de la prestigiosa revista Newsweek; ademas de una integracion con <strong>YouTube</strong></p>
+        <p>A finales de ese mismo año <strong>Facebook</strong> vendio una parte, el 1,6%, a <strong>Microsoft</strong> a cambio de <strong>$240 millones de dolares</strong>,16 con la condicion de que Facebook se convirtiera en un modelo de negocio para marcas de fabrica en donde se ofrezcan sus productos y servicios, segun los datos del usuario y del perfil de este. Esta adquisicion <strong>valoro Facebook en quince mil millones de dolares</strong>, aunque el consenso de los analistas fuera que esta cifra superaba el valor real de la empresa. Para Microsoft no se trataba solo de una inversion financiera, sino tambien de un avance estrategico en Internet.</p>
+        <p>La mas reciente inyeccion de capital a Facebook de 27,5 millones de dolares, fue liderada por <strong>Greylock Venture Capital</strong>, fondo de inversion con fuerte vinculo con la <strong>CIA</strong>. Uno de los socios de Greylock es <strong>Howard Cox</strong>, segun el diario The Guardian, pertenece al fondo de inversion en capital de riesgo de la CIA.
+          En <i>julio de 2009</i> Mark Zuckerberg hizo publico que <strong>Facebook habia alcanzado los 250 millones de usuarios</strong>. El <i>15 de septiembre</i> del mismo año anuncio que superaba los <strong>300 millones</strong>, y el <i>2 de diciembre</i> que ya contaba con mas de <strong>350 millones</strong>. En <i>septiembre de 2011</i> contaba con mas de <strong>800 millones de usuarios</strong>, alcanzando los <strong>mil quinientos millones en 2015</strong>.</p>
+        <p>&nbsp;</p>
+        <h2><i>Funciones Agregadas</i></h2>
+        <p>&nbsp;</p>
+        <p>En noviembre de 2011, Mark Zuckerberg anunció una nueva presentación para Facebook, se trata de la Biografía (Timeline Línea del tiempoen inglés), que reemplazará al Muro. Se publicó en diciembre del mismo año, y tiene como objetivo agilizar y optimizar el paseo de los usuarios por los perfiles de todos los contactos. Contiene algunas mejoras, como por ejemplo, fecha exacta de publicaciones, actualizaciones de estado, comentarios, etc., y brinda la posibilidad de llegar a ellas casi de inmediato, así tengan mucho tiempo. Permite agregar una foto de portada adicional en la parte superior del perfil de la persona (cabe mencionar que esta es visible para todo el mundo, y no existe la posibilidad de cambiar la privacidad), mantiene ordenadas y organizadas las actividades de la persona: Lista de amigos, Me gusta en las páginas seleccionadas por el usuario, información personal, suscripciones, etc; también es posible agregar eventos que pasaron antes que el usuario se registrara en Facebook.</p>
+        <p>Los usuarios tienen la posibilidad de activarla o conservar el antiguo aspecto del Muro, aunque es momentánea su duración, ya que si el usuario no activa la biografía, los mismos organismos de Facebook han de hacerlo en una fecha no esperada, fecha que ha sido objeto de diversas controversias por varios usuarios que señalan que sería en un día específico, y que de no activar la biografía la cuenta sería cancelada para el usuario. El 30 de marzo de 2012, los organismos de Facebook implementaron la Biografía para las páginas, cabe mencionar que esta si fue obligatoria para todo el mundo.</p>
+        <p>Este nuevo metodo, sin embargo <strong>no tubo un buen recibimiento por muchas personas</strong> alrededor del mundo, sobre todo refiriendose a America Latina. Muchos usuarios argumentan sentirse demasiado incomodas por las nuevas funcionalidades y detalles de la Biografia, argumentando y a la vez exigiendo tambien el regreso del Muro. No obstante, a partir de agosto de 2012 hasta noviembre del mismo año, Facebook reemplazo gradualmente los Muros por las Biografias (haciendolas obligatorias para todos).</p>
+        <p>En marzo de 2013, la web mashable filtro imagenes del nuevo cambio de imagen de la red social de Zuckerberg. Algunos de los cambios filtrado son la desaparicion de las miniaturas de la derecha del nombre del usuario, ademas la columna donde se escriben las publicaciones pasara a localizarse a la derecha en vez de a la izquierda. Ampliando asi el espacio para visualizar las opiniones personales, entre otros cambios.<br>
+          Actualmente Facebook ofrece una variedad de servicios a los usuarios y ofrece los que se mencionan a continuacion: 
+        </p>
+        <ul>
+          <li><strong>Lista de amigos:</strong> En ella, el usuario puede agregar a cualquier persona que conozca y este registrada, siempre que acepte su invitacion. En Facebook se pueden localizar amigos con quienes se perdio el contacto o agregar otros nuevos con quienes intercambiar fotos o mensajes. Para ello, el servidor de Facebook posee herramientas de busqueda y de sugerencia de amigos.</li>
+        </ul>
+        <blockquote>
+          <p><br>
+          </p>
+        </blockquote>
+        <ul>
+          <li><strong>Chat:</strong> Servicio de mensajeria instantanea en dispositivos moviles y computadores a traves de <strong>Facebook Messenger</strong></li>
+        </ul>
+        <blockquote>
+          <p><br>
+          </p>
+        </blockquote>
+        <ul>
+          <li><strong>Grupos y paginas:</strong> Es una de las utilidades de mayor desarrollo reciente. Se trata de reunir personas con intereses comunes. En los grupos se pueden añadir fotos, videos, mensajes, etc. Las paginas, se crean con fines especificos y a diferencia de los grupos no contienen foros de discusion, ya que estan encaminadas hacia marcas o personajes especificos y no hacia ningun tipo de convocatoria.</li>
+        </ul>
+        <p>
+        </p>
+        </p>
+      </blockquote>
+    </section>
+    <section>
+      <blockquote>
+        <h2><i>Apps para moviles</i></h2>
+        <p>&nbsp;</p>
+        <ul>
+          <li><strong>App Facebook:</strong> App desarrollada para la mayoria de las plataformas de telefonos inteligentes existentes, esta centralizaba la gestion de Facebook que luego se separaron en apps independientes.</li>
+        </ul>
+        <blockquote>
+          <p><br>
+          </p>
+        </blockquote>
+        <ul>
+          <li><strong>Messenger:</strong> El servicio de chat que antes era parte de la app principal, ahora funciona de forma independiente, permite incluso llamadas de voz.</li>
+        </ul>
+        <blockquote>
+          <p><br>
+          </p>
+        </blockquote>
+        <ul>
+          <li><strong>Poke:</strong> Una app para mensajes <i>"efimeros"</i>. Independiente de Messenger y requiere que ambos contactos tengan Poke. Descontinuado desde mayo de 2014 Reemplazado por Slingshot que es basicamente igual solo que ahora tambien envia y recibe fotos y videos <i>"efimeros"</i> (Disponible desde junio de 2014).</li>
+        </ul>
+        <blockquote>
+          <p><br>
+          </p>
+        </blockquote>
+        <ul>
+          <li><strong>Camera:</strong> App para subir fotografias, integrado con la app principal. </li>
+        </ul>
+        <blockquote>
+          <p><br>
+          </p>
+        </blockquote>
+        <ul>
+          <li><strong>Administrador de paginas:</strong> App para que el administrador de una pagina pueda rapidamente gestionarlas.</li>
+        </ul>
+        <blockquote>
+          <p><br>
+          </p>
+        </blockquote>
+        <ul>
+          <li><strong>Facebook Groups:</strong> Basicamente igual que la app Administrador de paginas, pero con los grupos. Ambas estan disponibles desde <i>noviembre de 2014</i>.</li>
+        </ul>
+        <blockquote>
+          <p><br>
+          </p>
+        </blockquote>
+        <ul>
+          <li><strong>Facebook Lite:</strong> Es casi lo mismo que Facebook. Pero pesa menos, aproximadamente 451 kb. Utiliza redes 2g y conexiones lentas. Es apta para celulares <strong>android</strong> de los que tienen poca memoria.</li>
+        </ul>
+        <h3><i>Mensajeria</i></h3>
+        <p>Todas son independientes e incapaces de operar entre si</p>
+        <ul>
+          <li><strong>Messenger</strong> (app y web).</li>
+          <li>Poke y Slingshot.</li>
+          <li><strong>Videollamadas</strong> (un programa .exe que se instala para Windows Vista en adelante, para activar chat de vídeo en la pagina web de Facebook).</li>
+          <li><strong>Whatsapp</strong>, comprado el 14 de febrero de 2014.</li>
+        </ul><br />
+        <p>Facebook es de las redes sociales mas importantes en todo el mundo debido a su facilidad de comunicacion, es gratuito y es la moda de hoy en dia.</p>
+      </blockquote>
+    </section>
+  <!-- end .content --></article>
+  <aside>
+    <h4><strong>Nota:</strong></h4>
+    <p>Esta pagina fue creada para reunir informacion y se escogieron diversas fuentes para recopilarla.</p>
+  </aside>
+  <footer>
+    <h4 align="right">23/03/18</h4>
+  </footer>
+<!-- end .container --></div>
+</body>
+</html>
